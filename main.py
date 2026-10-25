@@ -7,7 +7,7 @@ from respuestas import responder
 pantalla = turtle.Screen()
 pantalla.title("CHATBOT")
 pantalla.setup(width=640,height=640)
-pantalla.bgpic("cinnamoroll-gif-11.gif")
+pantalla.bgpic("../static/Deco_cinnamoroll/cinamoroll-gif-11.gif")
 
 #Haciendo las letras de turtle
 

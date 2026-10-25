@@ -1,0 +1,49 @@
+
+
+
+body {
+    background-image: linear-gradient(rgb(144, 192, 237),rgb(123, 192, 201));
+}
+.sticker-cinnamoroll{
+    
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    border-radius: 30px;
+    right: 15%;
+    top: 5%;
+
+}
+
+.sticker-cinnamoroll-2{
+    position: absolute;
+    border-radius: 30px;
+    width: 240px;
+    height: 240px;
+    right: 15%;
+    bottom: 0%;
+}
+
+.titulo{
+    position: absolute;
+    color: rgb(211, 227, 236);
+    font-size: 48px;
+    font-family: monospace;
+    font-style: italic;
+    font-weight: 700;
+    width: 500px;
+    text-align: center;
+    top: 5px;
+    
+}
+
+.chat-container{
+    
+    background-color: rgb(182, 216, 228);
+    width: 500px;
+    height: 440px;
+    border-radius: 20%;
+    margin: 5%;
+    margin-top: 10%;
+    margin-bottom: -10%;
+}  
