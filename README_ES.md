@@ -54,11 +54,6 @@ Espero que tengas un bonito día y gracias por ver mi proyecto. Puedes opinar so
 
 **¡GRACIAS POR LEER Y QUE TENGAS UN LINDO DÍA! :3**
 
-# 🤖 Cinnamobot
-
-*Un chatbot con interfaz gráfica y soporte web.*
-
-### 📸 Vistas del Proyecto
 
 | Interfaz Gráfica (Turtle) | Interfaz Web (HTML/CSS) |
 | :---: | :---: |
