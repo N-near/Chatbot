@@ -247,47 +247,37 @@ Para asi mismo devolver un resultado.
 '''
 
 def deteccion_intenciones(usuario):
-    
-     #Esto vuelve el mensaje del usuario a minusculas
-        usuario = usuario.lower()
 
-        #vuelve las palabras del usuario en cadenas
-        palabras_usuario = usuario.split()
+    if usuario is None or usuario.strip() == "":
+        return "desconocido"
+   
 
-        #Esta variable almacena las intenciones encontradas en el mensaje del usuario
-        lista_intenciones = []
-        
-    
-        #el for busca si la intencion y las frases estan en la lista de intenciones del bot
-        for intencion, frases in intenciones.items():
-            for frase in frases:
-                
-             #Lee la cantidad de palabras en la frase convertida en una lista
-             cantidad_palabras_frase = len(frase.split())
-             #Lee la cantidad de palabras de el usuario
-             cantidad_palabras_usuario = len(palabras_usuario)
-                                           
-             for i in range(cantidad_palabras_usuario - cantidad_palabras_frase + 1):
-                 grupo_palabras = palabras_usuario[i:i + cantidad_palabras_frase]
-            
-                 '''
-                 Se hace una condicion para evitar la repeticion de palabras como por ejemplo hola hola
-                 Si la intencion no esta en la lista se agrega la intencion si ya esta lo contrario
-                 Esto no afecta si las intenciones son diferentes
-                 '''
+    # Normaliza el mensaje y lo divide en palabras una sola vez.
+    palabras_usuario = usuario.lower().split()
 
-                 if grupo_palabras == frase.split():
-                  if intencion not in lista_intenciones:
-                    lista_intenciones.append(intencion)
-  
-                              
-        #Se hace una condicion para saber si la lista esta llena y devuelve la lista de intenciones
-        
-        if lista_intenciones != [] :
-            return lista_intenciones 
-        
-        #Este valor se ejecuta cuando no encuentra ninguna coincidencia en el mensaje del usuario
+    cantidad_palabras_usuario = len(palabras_usuario)
+    lista_intenciones = []
 
-        else:
-            return "desconocido"
+    # Divide cada frase registrada una vez para reutilizarla en las comparaciones.
+    frases_por_intencion = [
+        (intencion, frase.split())
+        for intencion, frases in intenciones.items()
+        for frase in frases
+    ]
+
+    for intencion, palabras_frase in frases_por_intencion:
+        cantidad_palabras_frase = len(palabras_frase)
+
+        for inicio in range(cantidad_palabras_usuario - cantidad_palabras_frase + 1):
+            grupo_palabras = palabras_usuario[
+                inicio:inicio + cantidad_palabras_frase
+            ]
+
+            if grupo_palabras == palabras_frase and intencion not in lista_intenciones:
+                lista_intenciones.append(intencion)
+
+    if lista_intenciones:
+        return lista_intenciones
+
+    return "desconocido"
 

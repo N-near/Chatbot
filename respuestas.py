@@ -342,12 +342,9 @@ def responder(intencion):
     respuestas_del_chatbot = []
     
 
-    for intenciones in intencion:
-
-       opciones = respuestas.get(intenciones)
-
+    for nombre_intencion in intencion:
+       opciones = respuestas.get(nombre_intencion) or respuestas['desconocido']
        respuesta_elegida = random.choice(opciones)
-
        respuestas_del_chatbot.append(respuesta_elegida)
 
     return ' '.join(respuestas_del_chatbot)
