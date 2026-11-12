@@ -46,12 +46,6 @@ I don't want to turn this README into a whole book, so here are some of my plans
 
 **THANKS FOR READING, AND HAVE A LOVELY DAY! :3**
 
-# 🤖 Cinnamobot
-
-*A chatbot with a graphical interface and web support.*
-
-### 📸 Project Previews
-
 | Graphical Interface (Turtle) | Web Interface (HTML/CSS) |
 | :---: | :---: |
 | ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html.png) |
