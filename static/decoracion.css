@@ -1,49 +1,241 @@
+/* --- VARIABLES DE COLOR --- */
+:root {
+    --bg-color-1: #90c0ed;
+    --bg-color-2: #7bc0c9;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-dark: #2c3e50;
+    --bot-bubble: #ffffff;
+    --user-bubble: #b6d8e4;
+    --primary-color: #6a9ac4;
+}
 
-
+/* --- ESTILOS GENERALES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif; /* Fuente redondeada */
+}
 
 body {
-    background-image: linear-gradient(rgb(144, 192, 237),rgb(123, 192, 201));
-}
-.sticker-cinnamoroll{
-    
-    width: 240px;
-    height: 240px;
-    position: absolute;
-    border-radius: 30px;
-    right: 15%;
-    top: 5%;
-
+    background-image: url('../static/Deco_cinnamoroll/cinnamoroll-gif-11.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita scroll en la página entera */
 }
 
-.sticker-cinnamoroll-2{
-    position: absolute;
-    border-radius: 30px;
-    width: 240px;
-    height: 240px;
-    right: 15%;
-    bottom: 0%;
+/* --- CONTENEDOR PRINCIPAL (Efecto Cristal) --- */
+.app-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    overflow: hidden;
 }
 
-.titulo{
-    position: absolute;
-    color: rgb(211, 227, 236);
-    font-size: 48px;
-    font-family: monospace;
-    font-style: italic;
+/* --- BARRA LATERAL --- */
+.sidebar {
+    width: 280px;
+    background: rgba(255, 255, 255, 0.15);
+    border-right: 1px solid var(--glass-border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar h2 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+.new-chat-btn {
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.new-chat-btn:hover {
+    background: #5583a8;
+}
+
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-item {
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.history-item:hover, .history-item.active {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* --- ÁREA DEL CHAT --- */
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-header h1 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.status {
+    font-size: 0.9rem;
+    color: green;
+    font-weight: 600;
+}
+
+/* --- MENSAJES --- */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 80%;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse; /* Invierte el avatar y la burbuja para el usuario */
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    background-color: white;
+}
+
+.bubble {
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-dark);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message.bot .bubble {
+    background: var(--bot-bubble);
+    border-bottom-left-radius: 4px;
+    margin-left: 5px;
+}
+
+.message.user .bubble {
+    background: var(--user-bubble);
+    border-bottom-right-radius: 4px;
+}
+
+/* --- ZONA DE ENTRADA --- */
+.chat-input-area {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.chat-input-area input:focus {
+    box-shadow: 0 0 0 3px rgba(106, 154, 196, 0.5);
+}
+
+.chat-input-area button {
+    padding: 0 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
     font-weight: 700;
-    width: 500px;
-    text-align: center;
-    top: 5px;
-    
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.chat-container{
-    
-    background-color: rgb(182, 216, 228);
-    width: 500px;
-    height: 440px;
-    border-radius: 20%;
-    margin: 5%;
-    margin-top: 10%;
-    margin-bottom: -10%;
-}  
+.chat-input-area button:hover {
+    transform: scale(1.05);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar personalizada */
+.chat-messages::-webkit-scrollbar { width: 8px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.5); border-radius: 10px; }

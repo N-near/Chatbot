@@ -1,3 +1,5 @@
+import re
+
 #Lista con las intenciones que puede detectar el bot
 
 intenciones = {
@@ -242,9 +244,14 @@ intenciones = {
 }
 
 '''
-Esta funcion Detecta si el mensaje de el usuario esta en la lista de intenciones del chatbot 
-Para asi mismo devolver un resultado.
+Las frases registradas se preparan una sola vez al cargar este módulo.
 '''
+frases_por_intencion = [
+    (intencion, frase.split())
+    for intencion, frases in intenciones.items()
+    for frase in frases
+]
+
 
 def deteccion_intenciones(usuario):
 
@@ -252,18 +259,12 @@ def deteccion_intenciones(usuario):
         return "desconocido"
    
 
-    # Normaliza el mensaje y lo divide en palabras una sola vez.
-    palabras_usuario = usuario.lower().split()
+    # Quita la puntuación y unifica espacios antes de comparar las palabras.
+    usuario_normalizado = re.sub(r"[^\w\s]", " ", usuario.lower())
+    palabras_usuario = " ".join(usuario_normalizado.split()).split()
 
     cantidad_palabras_usuario = len(palabras_usuario)
     lista_intenciones = []
-
-    # Divide cada frase registrada una vez para reutilizarla en las comparaciones.
-    frases_por_intencion = [
-        (intencion, frase.split())
-        for intencion, frases in intenciones.items()
-        for frase in frases
-    ]
 
     for intencion, palabras_frase in frases_por_intencion:
         cantidad_palabras_frase = len(palabras_frase)

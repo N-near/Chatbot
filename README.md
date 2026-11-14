@@ -48,4 +48,4 @@ I don't want to turn this README into a whole book, so here are some of my plans
 
 | Graphical Interface (Turtle) | Web Interface (HTML/CSS) |
 | :---: | :---: |
-| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html.png) |
+| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html1.png) |

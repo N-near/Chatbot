@@ -1,14 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title >Cinnamoroll Chatbot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinnamobot ✨</title>
     <link rel="stylesheet" href="../static/decoracion.css">
+    <!-- Importamos una fuente bonita de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <h1 class="titulo"  >Cinnamobot</h1>
-    <img class="sticker-cinnamoroll" src="../static/Deco_cinnamoroll/cinnamoroll-cinnamoroll-sleepy.gif" alt="sticker-cinnamoroll">
-    <img class="sticker-cinnamoroll-2" src="../static/Deco_cinnamoroll/cinnamoroll-relaxing-on-clouds-usagif.gif" alt="sticker-cinnamoroll-2">
-    <div class="chat-container"></div>
+
+    <div class="app-container">
+        <!-- BARRA LATERAL (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../static/Deco_cinnamoroll/cinnamoroll-ears-wings-usagif.gif" alt="Logo" class="logo">
+                <h2>Cinnamobot</h2>
+            </div>
+            
+            <button class="new-chat-btn">+ Nuevo Chat</button>
+
+            <div class="chat-history">
+                <div class="history-item active">💬 Chat General</div>
+            </div>
+        </aside>
+
+        <!-- ÁREA PRINCIPAL DEL CHAT -->
+        <main class="chat-main">
+            <!-- Cabecera -->
+            <header class="chat-header">
+                <h1>Chat General</h1>
+                <span class="status">🟢 En línea</span>
+            </header>
+
+            <!-- Mensajes -->
+            <div class="chat-messages" id="chat-messages">
+                <!-- Mensaje del Bot -->
+                <div class="message bot">
+                    <img src="../static/Deco_cinnamoroll/cinnamoroll-relaxing-on-clouds-usagif.gif" alt="Bot" class="avatar">
+                    <div class="bubble">¡Hola! Soy Cinnamobot. ¿En qué te puedo ayudar hoy? 🌸</div>
+                </div>
+                
+                <!-- Mensaje del Usuario -->
+                <div class="message user">
+                    <div class="bubble">¡Hola! Estoy aprendiendo a programar en Rust.</div>
+                </div>
+            </div>
+
+            <!-- Zona de entrada -->
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Escribe un mensaje aquí..." autocomplete="off">
+                <button id="send-btn">Enviar</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script temporal para probar la UI -->
+    <script>
+        const input = document.getElementById('chat-input');
+        const btn = document.getElementById('send-btn');
+        const messages = document.getElementById('chat-messages');
+
+        function sendMessage() {
+            if (input.value.trim() === "") return;
+            
+            // Agregar mensaje del usuario
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.innerHTML = `<div class="bubble">${input.value}</div>`;
+            messages.appendChild(userMsg);
+            
+            input.value = "";
+            messages.scrollTop = messages.scrollHeight;
+
+            // Simular respuesta del bot después de 1 segundo
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                botMsg.innerHTML = `
+                    <img src="../static/Deco_cinnamoroll/cinnamoroll-sleepy.gif" alt="Bot" class="avatar">
+                    <div class="bubble">¡Eso suena genial! Pronto conectaré mi cerebro de Python aquí. 🧠✨</div>
+                `;
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+        }
+
+        btn.addEventListener('click', sendMessage);
+        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
+    </script>
 </body>
 </html>

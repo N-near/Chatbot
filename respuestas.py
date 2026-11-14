@@ -1,5 +1,4 @@
 import random
-from datetime import datetime #AUN SIN USAR 
    
 #Lista con las respuestas del chatbot
 
