@@ -57,4 +57,4 @@ Espero que tengas un bonito día y gracias por ver mi proyecto. Puedes opinar so
 
 | Interfaz Gráfica (Turtle) | Interfaz Web (HTML/CSS) |
 | :---: | :---: |
-| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html.png) |
+| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html1.png) |
