@@ -1,8 +1,18 @@
-Mi Chatbot 
+# Mi Chatbot Project 🐢
 
-¡Hola! ¿Qué tal? Este es mi programa de un chatbot. Por el momento, no tiene nombre.
+| Interfaz Gráfica (Turtle) | Interfaz Web (HTML/CSS) |
+| :---: | :---: |
+| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html1.png) |
 
-Cosas a aclarar.
+¡Hola! ¿Qué tal? Este es mi programa de un chatbot. Su nombre es cinnamonbot.
+
+## 🚀 Cómo ejecutarlo (Quick Start)
+¿Quieres probarlo tú mismo?
+1. Clona el repositorio: `git clone https://github.com/N-near/Chatbot.git`
+2. Instala las dependencias: `pip install -r requirements.txt`
+3. Ejecuta la app: `python3 app.py` (o `python3 chatbot.py` para la versión de terminal).
+
+## Cosas a aclarar
 
 Este programa es una versión de prueba y aún tiene muchos errores. Simplemente quiero mostrar los avances que hago mientras aprendo a crear un chatbot desde cero.
 
@@ -36,6 +46,14 @@ Cuando me quedaba atrapado en un problema, me ayudaba a entenderlo en lugar de t
 
 Eso sí, no me gusta usar las IA para que literalmente te hagan todo el código, pues, en mi opinión, no aprendes nada nuevo de esa manera. Además, a veces pueden darte resultados que no te gusten.
 
+## 🤪 Confesiones de un desarrollador
+
+Para ser totalmente honesto, tengo que confesar algo: *Este proyecto me cambió la vida. No sé si para bien o para mal, pero definitivamente me cambió la vida.* 
+
+3 horas después: *"Oye Codex, mejor hazme el programa entero *tipitupi*"*... Por favor, deja de chuparme los tokens, te lo ruego. 😂
+
+*(Es broma, prometo que no soy el peor vibecoder... ¿o sí?)*
+
 ## 🔧 Próximos planes
 
 Mientras sigo mejorando mi código, estos son mis planes:
@@ -53,8 +71,3 @@ Si lees esto, ¡eres una cabra! 🐐 Confía en el proceso y en mi proceso.
 Espero que tengas un bonito día y gracias por ver mi proyecto. Puedes opinar sobre él, decirme qué cosas puedo agregar o, si te interesa colaborar en algo, ¡hazlo! Estaré muy agradecido. :3
 
 **¡GRACIAS POR LEER Y QUE TENGAS UN LINDO DÍA! :3**
-
-
-| Interfaz Gráfica (Turtle) | Interfaz Web (HTML/CSS) |
-| :---: | :---: |
-| ![Turtle](assets/chatbot-turtle.png) | ![Web](assets/chatbot-html1.png) |
